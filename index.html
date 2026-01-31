@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en-GB">
 <head>
@@ -96,54 +97,38 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-         
+          <li><a class="btn btn-small" href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero -->
+    <!-- Hero (centered, no quick contact box) -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Reliable, wildlife-friendly gardening in <span class="nowrap">Bristol</span> &amp; nearby areas</h1>
-          <p class="lead">
-            Honest, professional garden care — from one-off tidy visits to regular maintenance, plus landscaping and garden creation.
-          </p>
+      <div class="container">
+        <div class="hero-center">
+          <div class="hero-copy">
+            <h1>Reliable, wildlife-friendly gardening in <span class="nowrap">Bristol</span> &amp; nearby areas</h1>
+            <p class="lead">
+              Honest, professional garden care — from one-off tidy visits to regular maintenance, plus landscaping and garden creation.
+            </p>
 
-          <div class="hero-actions">
-            <a class="btn" href="#contact">Request a quote</a>
-            <a class="btn btn-ghost" href="#services">View services</a>
+            <div class="hero-actions">
+              <a class="btn" href="#contact">Request a quote</a>
+              <a class="btn btn-ghost" href="#services">View services</a>
+            </div>
+
+            <ul class="trust-points" aria-label="Key highlights">
+              <li><strong>RHS qualified</strong> &amp; experienced</li>
+              <li><strong>Wildlife-friendly</strong> approach available</li>
+              <li><strong>Clear communication</strong> and tidy work</li>
+            </ul>
+
+            <p class="service-area">
+              Serving Bristol and surrounding areas (including Bath, Keynsham, Portishead, Clevedon and nearby villages).
+            </p>
           </div>
-
-          <ul class="trust-points" aria-label="Key highlights">
-            <li><strong>RHS qualified</strong> &amp; experienced</li>
-            <li><strong>Wildlife-friendly</strong> approach available</li>
-            <li><strong>Clear communication</strong> and tidy work</li>
-          </ul>
-
-          <p class="service-area">
-            Serving Bristol and surrounding areas (including Bath, Keynsham, Portishead, Clevedon and nearby villages).
-          </p>
-        </div>
-
-        <div class="hero-card" role="region" aria-label="Quick contact">
-          <h2 class="h3">Get in touch</h2>
-          <p class="small">Fast reply by phone or email.</p>
-          <div class="contact-cards">
-            <a class="contact-pill" href="tel:+447487654772" aria-label="Call 07487 654772">
-              <span class="pill-label">Call</span>
-              <span class="pill-value">07487 654772</span>
-            </a>
-            <a class="contact-pill" href="mailto:lily.lambert.williams@gmail.com" aria-label="Email lily.lambert.williams@gmail.com">
-              <span class="pill-label">Email</span>
-              <span class="pill-value">lily.lambert.williams@gmail.com</span>
-            </a>
-          </div>
-          <p class="small muted">
-            Prefer a form? Scroll to <a href="#contact">Contact</a>.
-          </p>
         </div>
       </div>
     </section>
@@ -161,12 +146,12 @@
             <p>
               I’m a gardener based in Bristol. I specialise in <strong>wildlife-friendly gardening</strong> but I’m open to any project.
               Whether you’re looking for a <strong>one-off garden tidy</strong>, <strong>regular visits</strong>, or help with the
-              <strong>design &amp; creation</strong> of your garden, please get in touch to discuss your requirements.
+              <strong>design &amp; creation</strong> of your garden please get in touch to discuss your requirements.
             </p>
           </div>
           <div class="card">
             <p>
-              I’m <strong>RHS qualified</strong> (:contentReference[oaicite:1]{index=1}) and have been gardening/landscaping for several years.
+              I’m <strong>RHS qualified</strong> and have been gardening/landscaping for several years.
               Expect an easy-going, respectful worker who turns up on time, communicates clearly, and leaves your space tidy.
             </p>
             <ul class="ticks">
@@ -264,7 +249,6 @@
         </div>
 
         <div class="gallery">
-          <!-- Replace these with your real images in /assets/portfolio/ -->
           <figure class="shot card">
             <img src="assets/portfolio/sample-1.jpg" alt="Garden tidy and clearance in Bristol" loading="lazy">
             <figcaption>Garden tidy &amp; clearance — Bristol</figcaption>
@@ -375,12 +359,6 @@
           <div class="card">
             <h3>Contact form</h3>
 
-            <!--
-              IMPORTANT (GitHub Pages is static):
-              This form uses Formspree. Create a free Formspree form and replace the action URL below.
-              1) Go to Formspree, create a form, copy your endpoint: https://formspree.io/f/xxxxxx
-              2) Replace "yourFormId" below.
-            -->
             <form class="form" action="https://formspree.io/f/yourFormId" method="POST">
               <label>
                 Name
@@ -407,7 +385,9 @@
                 <textarea name="message" rows="5" required placeholder="Maintenance, clearance, hedges, lawns, planting, jet washing…"></textarea>
               </label>
 
-              <!-- Helps reduce spam -->
+              <input type="hidden" name="_subject" value="New enquiry — Sticks & Stones Gardening" />
+              <input type="hidden" name="_format" value="plain" />
+
               <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" />
 
               <button class="btn" type="submit">Send message</button>
@@ -431,7 +411,6 @@
   </main>
 
   <script>
-    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('navMenu');
     toggle?.addEventListener('click', () => {
@@ -440,13 +419,11 @@
       menu.classList.toggle('open');
     });
 
-    // Close menu on link click (mobile)
     menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       menu.classList.remove('open');
       toggle?.setAttribute('aria-expanded', 'false');
     }));
 
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
